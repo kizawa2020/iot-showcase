@@ -280,6 +280,7 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 * AWSリージョン：（先程Lambda関数を作成したリージョン）
 * Lambda関数：先程作成したLambda関数名
 ![soracombutton-connect/iot1click5](https://drive.google.com/uc?id=1et2vptZNSXEvDelqJgDzSyHHlTToHhGw)
+
 ここまで入力が完了したら、画面下方にある「プロジェクトの作成」をクリックします。  
 
 プロジェクトが作成されました。[プレイスメントの作成] をクリックします。
@@ -287,8 +288,9 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 
 **プレイスメント設定**  
 続けてプレイスメントの設定を行います。  
-プレイスメントの設定で、登録したボタンのDSNコードと紐付けます。  
-![soracombutton-connect/iot1click7](https://drive.google.com/uc?id=TxwkCu5IT6FyT7ndjqdklkhUdTAmI)
+プレイスメントの設定で、登録したボタンのDSNコードと紐付けます。
+
+![soracombutton-connect/iot1click7](https://drive.google.com/uc?id=1Bl_TxwkCu5IT6FyT7ndjqdklkhUdTAmI)
 プロジェクトの新しいプレイスメントでは以下のように設定した後 [プレイスメントの作成] をクリックします。
 
 * デバイスのプレイスメント名: `button1` (任意の文字列)
