@@ -24,7 +24,7 @@ SORACOM LTE-M Button powered by AWSを利用し、ボタンを押すとAmazon Co
 1. [SORACOM LTE-M Button を AWS IoT 1-Click に登録する](#content1)
 2. [Amazon Connectのインスタンス作成](#content2)
 3. [Amazon Connectの電話番号取得](#content3)
-4. [Amazon Connectのコールフロー作成](#content4)
+4. [Amazon Connectの問い合わせフロー作成](#content4)
 5. [AWS Lambda関数の設置](#content5)
 6. [AWS IoT 1-Clickのプロジェクト設定](#content6)
 7. [動作確認](#content7)
@@ -128,7 +128,7 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 発信のテスト画面が表示されますが、ここではスキップして問題ありません。
 ![soracombutton-connect/電話番号取得3](http://drive.google.com/uc?export=view&id=1Wj9EwIdOrmnM_NsCa2ILK9-DL-oVOFOf)
 
-<h3 id="content4">4. Amazon Connectコールフローの作成</h3>
+<h3 id="content4">4. Amazon Connect問い合わせフローの作成</h3>
 電話をかけた後、任意のメッセージを再生できるよう、問い合わせフローの作成を行います。
 左側のメニューから「ルーティング」⇒「問い合わせフロー」を選択します。
 ![soracombutton-connect/フロー作成1](http://drive.google.com/uc?export=view&id=1-AYzopB2Cw3qL0EjpGXmUAOBBIQBzp3N)
@@ -171,18 +171,18 @@ SORACOM LTE-M Buttonが押された際にAmazon Connectを呼び出すプログ�
 Lambda関数を実行させる際、電話の発信元(Amazon Connectの電話番号)や電話の発信先(自身の携帯電話)の番号が必要ですが、それらの値は環境変数に与えます。
 また、LambdaからAmazon Connectのインスタンスを呼び出せるよう、実行権限を付与します。
 
-[AWS マネジメントコンソール](https://console.aws.amazon.com/console/home)を開きログインした後、リージョンをオレゴンに変更し、Lambdaのコンソールを開きます。  
-![soracombutton-connect/ 6-1 Lambda1](https://kizawa.info/wp-content/uploads/2019/03/lambda-1.png)
+[AWS マネジメントコンソール](https://console.aws.amazon.com/console/home)を開きログインした後、Lambdaのコンソールを開きます。  
+![soracombutton-connect/Lambda1](http://drive.google.com/uc?id=1JJbtIiAL3hneY9PtPXCv0ARtUvaV2VUR)
 
 関数の作成をクリックします。  
-![soracombutton-connect/ 6-2 Lambda2](https://kizawa.info/wp-content/uploads/2019/03/lambda-0.png)
+![soracombutton-connect/Lambda2](http://drive.google.com/uc?id=1uHRm9MDLnxSRQOXZL0Dk9dxsQEaOGISA)
 
 関数の作成画面が開きます。以下の情報を入力します。
 * 作成方法：一から作成  
 * 関数名：任意の名前(callbuttonなど)
 * ランタイム：Python3.7
 * 実行ロール：基本的なLambdaアクセス権限で新しいロールを作成
-![soracombutton-connect/ 6-3 Lambda2](https://kizawa.info/wp-content/uploads/2019/03/lambda-3.png)
+![soracombutton-connect/Lambda3](http://drive.google.com/uc?id=15GrdHdGNZRveuntjgz-JnW2gNqNjaXTx)
 
 続いて関数の編集画面が開きます。以下の設定を行います  
 * 関数コードのセクション
@@ -191,7 +191,7 @@ Lambda関数を実行させる際、電話の発信元(Amazon Connectの電話�
 
 引き続き同画面で、環境変数値を入力します。電話の発信元や電話の発信先の番号などの入力になります。
 * 環境変数のセクション
-![soracombutton-connect/ 6-4 Lambda3](https://drive.google.com/uc?id=1yrVQJwLy_6pbUK6uVlUhnF0cZPnpcrU0)
+![soracombutton-connect/Lambda4](https://drive.google.com/uc?id=1yrVQJwLy_6pbUK6uVlUhnF0cZPnpcrU0)
     * 画像を参考にキーと値にそれぞれ以下の内容を入力
     * FlowID : (ConnectのフローID。Amazon Connectダッシュボードにおいて「追加のフロー情報の表示」をクリック。ARNの値、contact-flow/の右側の値をペースト)
     * InstanceID : (ConnectのインスタンスID。AWSコンソールからAmazon Connect、インスタンスエイリアスを選択。インスタンスARNの値、instance/の右側の値をペースト)
@@ -200,21 +200,21 @@ Lambda関数を実行させる際、電話の発信元(Amazon Connectの電話�
 
 引き続きLambdaにAmazon Connect実行権限を付与します。
 同画面で以下操作をしてください。
-![soracombutton-connect/ 6-5 Lambda4](https://drive.google.com/uc?id=1a-hWSYeCJtGGqSZjlgDD1UpdcuXFAq03)
+![soracombutton-connect/Lambda5](https://drive.google.com/uc?id=1a-hWSYeCJtGGqSZjlgDD1UpdcuXFAq03)
 
 IAMのページが別タブで開くので、ポリシーをアタッチしますをクリック。
-![soracombutton-connect/ 6-6 Lambda5(IAM)](https://drive.google.com/uc?id=1pdnFv_lEYt1YgZbNzCiVKFzHHwa6nM6q)
+![soracombutton-connect/Lambda6(IAM)](https://drive.google.com/uc?id=1pdnFv_lEYt1YgZbNzCiVKFzHHwa6nM6q)
 
 検索欄に「connect」と入力し、「AmazonConnectFullAccess」を選択し、ポリシーのアタッチをクリック。
-![soracombutton-connect/ 6-7 Lambda6(IAM)](https://drive.google.com/uc?id=1yx0ZOe5g3hqyL6ZHC5Gz9ceMeSB1y0kY)
+![soracombutton-connect/Lambda7(IAM)](https://drive.google.com/uc?id=1yx0ZOe5g3hqyL6ZHC5Gz9ceMeSB1y0kY)
 
 ロールにConnectのポリシー（権限）を付与しました。
-![soracombutton-connect/ 6-8 Lambda7(IAM)](https://drive.google.com/uc?id=1zzgcmX4xLhaupgyP3CSPK-_KJGUQpifi)
+![soracombutton-connect/Lambda8(IAM)](https://drive.google.com/uc?id=1zzgcmX4xLhaupgyP3CSPK-_KJGUQpifi)
 
 Lambdaの画面に戻ります。
 Lambdaの画面から動作を確認しましょう。関数への実行時パラメータとなるテストイベントを作成します。
 画面右上、テストイベントの設定をクリック
-![soracombutton-connect/ 6-9 Lambda8(IAM)](https://drive.google.com/uc?id=13VH-l1ubuzmT81vTf1iD48pHO7wpMCvz)
+![soracombutton-connect/Lambda9(IAM)](https://drive.google.com/uc?id=13VH-l1ubuzmT81vTf1iD48pHO7wpMCvz)
 
 開いた画面で以下入力します。
 * イベント名：任意。TestClickButtonで良い。
@@ -241,8 +241,7 @@ Lambdaの画面から動作を確認しましょう。関数への実行時パ�
 ```
 
 入力したら作成をクリック。
-![soracombutton-connect/ 6-10 Lambda9(IAM)](https://drive.google.com/uc?id=1WToI3Vf2UfIczmIkVItgJ6_S7ApvxbCK)
-
+![soracombutton-connect/Lambda10(IAM)](https://drive.google.com/uc?id=1WToI3Vf2UfIczmIkVItgJ6_S7ApvxbCK)
 
 画面右上の保存をクリックすると準備は完了です。
 
@@ -262,48 +261,34 @@ Lambdaの画面から動作を確認しましょう。関数への実行時パ�
 
 **AWS IoT 1-Clickプロジェクト設定**  
 AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開いた後 [プロジェクトの作成] をクリックします。  
-![soracombutton-connect/ 7-1 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vSQtO8MYnq7k9drY2LWfYrhuWNmjZ16USKNslZr0L6mGvOET8KPYkePkvI3Sq8s3-HCelF3tfeFB5Vz/pub?w=897&h=473)
+![soracombutton-connect/iot1click1](https://docs.google.com/drawings/d/e/2PACX-1vSQtO8MYnq7k9drY2LWfYrhuWNmjZ16USKNslZr0L6mGvOET8KPYkePkvI3Sq8s3-HCelF3tfeFB5Vz/pub?w=897&h=473)
 
 プロジェクト名として任意の名前を入力します。  
-![soracombutton-connect/ 7-2 projectName](https://kizawa.info/wp-content/uploads/2018/11/aws1click-6.png)
+![soracombutton-connect/iot1click2](https://drive.google.com/uc?id=1iw2KxNwG8sVr9t4kfoqyWKy9aXYbbtkj)
 
 **プレイスメントのテンプレート**  
 プロジェクトのプレイスメントのテンプレートの定義画面に移ります。  
 デバイステンプレートの定義の箇所をクリックします。  
-![soracombutton-connect/ 7-3 devicetemplate1](https://kizawa.info/wp-content/uploads/2019/03/1click-1.png)
+![soracombutton-connect/iot1click3](https://drive.google.com/uc?id=1mJMhr1a0M_WXiE37HvWZ3mNSFkgbklV3)
 
 「すべてのボタンタイプ」の箇所をクリックします。  
-![soracombutton-connect/ 7-4 devicetemplate2](https://kizawa.info/wp-content/uploads/2019/03/1click-2.png)
+![soracombutton-connect/iot1click4](https://drive.google.com/uc?id=1Upx3Qer8PrwBsj1K8E-o04x-OTFELFzc)
 
 続けて先程作成したLambda関数と紐付けます。以下の情報を入力します。　　
 * デバイステンプレート名：任意の名前
 * アクション：Lambda関数の選択
 * AWSリージョン：（先程Lambda関数を作成したリージョン）
 * Lambda関数：先程作成したLambda関数名
-![soracombutton-connect/ 7-5 devicetemplate3](https://kizawa.info/wp-content/uploads/2019/03/1click-3.png)
+![soracombutton-connect/iot1click5](https://drive.google.com/uc?id=1et2vptZNSXEvDelqJgDzSyHHlTToHhGw)
+ここまで入力が完了したら、画面下方にある「プロジェクトの作成」をクリックします。  
 
-**プレイスメントの属性**  
-引き続き画面下の方にあるプレイスメントの属性に以下の情報を入力します。
-
-| 属性の名前 | デフォルト値 |
-|:--------------|:------------|
-| twilio_sid    | (TwilioのACCOUNT SID)     |
-| twilio_token  | (TwilioのAUTH TOKEN)      |
-| twilio_flowid | (Twilio Studio FlowのSID) |
-| twilio_number | (Twilioで取得した電話番号 +8150xxxxxxxx の形式) |
-| twilio_callto | (電話の発信先：Twilioに登録したご自身の携帯電話番号 +81xxxxxxxxxx の形式) |
-
-ここまで入力が完了したら「プロジェクトの作成」をクリックします。  
-![soracombutton-connect/ 7-6 placement](https://kizawa.info/wp-content/uploads/2019/03/1click-4.png)  
-
-プロジェクトが作成されました。  
-![soracombutton-connect/ 7-4 projectCreate](https://kizawa.info/wp-content/uploads/2018/11/aws1click-8.png)  
-[プレイスメントの作成] をクリックします。
+プロジェクトが作成されました。[プレイスメントの作成] をクリックします。
+![soracombutton-connect/iot1click6](https://drive.google.com/uc?id=1giRA2qRSrqRJLdiwMXZvD37HLAu0NUyp)  
 
 **プレイスメント設定**  
 続けてプレイスメントの設定を行います。  
 プレイスメントの設定で、登録したボタンのDSNコードと紐付けます。  
-![soracombutton-connect/ 7-5 placement](https://kizawa.info/wp-content/uploads/2019/03/1click-5.png)
+![soracombutton-connect/iot1click7](https://drive.google.com/uc?id=TxwkCu5IT6FyT7ndjqdklkhUdTAmI)
 プロジェクトの新しいプレイスメントでは以下のように設定した後 [プレイスメントの作成] をクリックします。
 
 * デバイスのプレイスメント名: `button1` (任意の文字列)
