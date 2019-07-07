@@ -305,11 +305,32 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 
 <h3 id="content7">7. 動作確認</h3>
 
-ここまでの作業で AWS IoT 1-Click を通じて Twilio経由で電話がかけられるようになりました。  
-ボタンを押すと、ご自身の携帯電話に電話が掛かってくるようになったでしょうか。  
+ここまでの作業で AWS IoT 1-Click を通じて Amazon Connect経由で電話がかけられるようになりました。  
+ボタンを押すと、ご自身の携帯電話に電話が掛かってくるようになったでしょうか。 
+シングルクリック、ダブルクリック、長押しでメッセージが変わることを確認してください。
 （※うまく動作しない方はスタッフまでお問い合わせ下さい）
+![soracombutton-connect/check1](https://drive.google.com/uc?id=1QgQwLtM3gTTmYLNblKk-f8MWTSuDG3fl)
 
-<h3 id="content8">8. お片付け</h3>
+<h3 id="content8">8. チャレンジ：電話が掛かってきた際の問い合わせフロー作成</h3>
+
+**※時間に余裕がある方は以下の課題にもチャレンジしてみて下さい。**
+
+6章までの手順ではボタンを押すことで電話をかける、アウトバウンドコールの問い合わせフローを作成してみました。
+逆に、Amazon Connectの電話番号に電話を受電した際の問い合わせフローを作成することができます。
+
+以下のユニットなどを利用して、受電した際の問い合わせフローを作成してみましょう。
+
+* プロンプトの再生：メッセージを再生する
+* 顧客の入力を取得する：トーン信号の入力を要求し回答を得る
+* 問い合わせ属性の設定：入力を基にキーに値を入れる
+* AWS Lambda関数を呼び出す：Lambda関数を実行する
+
+![soracombutton-connect/advanced1](https://drive.google.com/uc?id=1E5ftTpgVkjsplA3psXHL_hXGtuq41liW)
+
+作成した問い合わせフローは、ルーティング⇒電話番号から電話番号を選択し、「問い合わせフロー/IVR」の欄で設定することで呼び出されます。
+![soracombutton-connect/advanced2](https://drive.google.com/uc?id=1XvF3Xxl9edhMFKR1h2KaKB86Awfe48_C)
+
+<h3 id="content9">9. お片付け</h3>
 
 **※ ボタン貸出枠で参加の方は、ボタン返却のため以下の手順の実施をしてください。**
 
