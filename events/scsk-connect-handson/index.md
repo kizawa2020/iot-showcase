@@ -29,32 +29,32 @@ SORACOM LTE-M Button powered by AWSを利用し、ボタンを押すとAmazon Co
 6. [AWS IoT 1-Clickのプロジェクト設定](#content6)
 7. [動作確認](#content7)
 8. [チャレンジ：電話が掛かってきた際の問い合わせフロー作成](#content8)
-9. [お片付け](#content8)
+9. [お片付け](#content9)
 
 ## プログラム
 <h3 id="content1">1. SORACOM LTE-M Button を AWS IoT 1-Click に登録する</h3>
 
-**AWS IoT 1-Click へ LTE-M Button を登録する**  
+**AWS IoT 1-Click へ LTE-M Button を登録する**
 [AWS マネジメントコンソール](https://console.aws.amazon.com/console/home)を開きログインした後、AWS IoT 1-Clickのコンソールを開きます。
 
 ![soracombutton-connect/ 1-1 aws-console](https://docs.google.com/drawings/d/e/2PACX-1vTprwdD-l_uDEZbhNugIaePDUv9MYWYkXfxHFq4IA4fVNKfZFNrTqCWpDGMksArW7HhN7TtMWK_TKGF/pub?w=612&h=276)
 
-AWS IoT 1-Click のコンソールから [デバイスの登録] をクリックします。  
+AWS IoT 1-Click のコンソールから [デバイスの登録] をクリックします。
 ![soracombutton-connect/ 1-2 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vRZ_OiMuE0UPvKG2QxIBfA1OP0laZJiDG4gWa-zwfcOqW6B82I3T0uCxasen8uCh_ttXJuHKBoye_q4/pub?w=752&h=216)
 
-LTE-M Button の電池カバーを開けて DSN を AWS IoT 1-Click に入力し [登録] をクリックします。  
+LTE-M Button の電池カバーを開けて DSN を AWS IoT 1-Click に入力し [登録] をクリックします。
 ![soracombutton-connect/ 1-3 dsn](https://docs.google.com/drawings/d/e/2PACX-1vT5pWHfUR5phIDYUL0NdfyqZc5_fg3LxgomOqOSSvh6nDriZzSxMWNvRkBo8Hyl_CH9XBgKpJ9-t_iT/pub?w=532&h=352)
 
 ![soracombutton-connect/ 1-4 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vR0FV0g7ywhbb7-02pDvuB-ZB3oiwfomAyUur4Lfx0pLKXQT2EcaSv6tK8RKDVg6GeDoLNG8Vk0j8W1/pub?w=578&h=516)
 
-LTE-M Button からのボタン押下を待ち受ける状態になります。  
-このタイミングで LTE-M Button のボタンを１回押してください。  
+LTE-M Button からのボタン押下を待ち受ける状態になります。
+このタイミングで LTE-M Button のボタンを１回押してください。
 (LED が赤点灯(= データ送信失敗)となった場合は、再度ボタンを押して下さい)
 
-登録済みになりましたら [完了] をクリックします。  
+登録済みになりましたら [完了] をクリックします。
 ![soracombutton-connect/ 1-5 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vSKoIzpJwqKkSXsDLEGAbdO4a6tKHx5-PKpSVv7KBWgY5_4wcZS3rhLZ_CSUlZ-Eqv6O4GsJFdPjAub/pub?w=499&h=726)
 
-以下のようにデバイス一覧が表示されていれば登録成功です。  
+以下のようにデバイス一覧が表示されていれば登録成功です。
 ![soracombutton-connect/ 1-6 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vQXuiKDLSeAUC9TbELS5yzMgC-_Ndl7KRuXcWScAYI_hu4t0xqK85Jn_qpGNSWwlxTdKCRTWqhdMd90/pub?w=929&h=315)
 
 一覧に表示されている意味は以下の通りです。
@@ -66,14 +66,14 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 * デバイスリージョン
     * デバイスが管理されているリージョンです。現在のところ利用者はリージョンを選ぶことができず、オレゴン(us-west-2) 固定となります。
 * 有効
-    * *有効* もしくは *無効* です。初期状態は *無効* です。 *有効* は課金対象デバイスです。 
+    * *有効* もしくは *無効* です。初期状態は *無効* です。 *有効* は課金対象デバイスです。
 * プロジェクト、配置
     * ボタンに紐づいた機能(Lambda 関数)の状況です。初期状態は双方とも _未割り当て_ です。
 * ヘルス
     * ボタンの寿命です。
 
-登録したボタンの右にある [...] をクリックした後、[デバイスの有効化] をクリックします。  
-![soracombutton-connect/ 1-7 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vRZvuTrcEL7gn72cEFK11VO1HZticJRaUUgt0_znxQOX0MORBdVup1GDCdH32Rq1o_vLNqxP-Wm9p3c/pub?w=926&h=298)  
+登録したボタンの右にある [...] をクリックした後、[デバイスの有効化] をクリックします。
+![soracombutton-connect/ 1-7 aws-iot-1-click](https://docs.google.com/drawings/d/e/2PACX-1vRZvuTrcEL7gn72cEFK11VO1HZticJRaUUgt0_znxQOX0MORBdVup1GDCdH32Rq1o_vLNqxP-Wm9p3c/pub?w=926&h=298)
 これでボタンが利用可能な状態になりました。
 
 <h3 id="content2">2. Amazon Connectインスタンスの作成</h3>
@@ -142,7 +142,7 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 今回は以下のようなフローを作成します。
 ![soracombutton-connect/フロー作成3](http://drive.google.com/uc?id=1SP5B84Pkc7qcCxsZiZgrla_hZdT1KxOi)
 
-**説明**  
+**説明**
 * 音声の設定 ： 発話者を設定します（日本語の再生に必須です）日本語のデータは現在、男声(takumi)/女声(mizuki)の2種類です。
 * プロンプトの再生 ： 任意の文字列や音声データ(wav)を再生できます。
 * 切断/ハングアップ ： 電話を切ります。
@@ -168,24 +168,24 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 
 <h3 id="content5">5. AWS Lambda関数の設置</h3>
 
-SORACOM LTE-M Buttonが押された際にAmazon Connectを呼び出すプログラム(Lambda関数)を設置します。  
+SORACOM LTE-M Buttonが押された際にAmazon Connectを呼び出すプログラム(Lambda関数)を設置します。
 Lambda関数を実行させる際、電話の発信元(Amazon Connectの電話番号)や電話の発信先(自身の携帯電話)の番号が必要ですが、それらの値は環境変数に与えます。
 また、LambdaからAmazon Connectのインスタンスを呼び出せるよう、実行権限を付与します。
 
-[AWS マネジメントコンソール](https://console.aws.amazon.com/console/home)を開きログインした後、Lambdaのコンソールを開きます。  
+[AWS マネジメントコンソール](https://console.aws.amazon.com/console/home)を開きログインした後、Lambdaのコンソールを開きます。
 ![soracombutton-connect/Lambda1](http://drive.google.com/uc?id=1JJbtIiAL3hneY9PtPXCv0ARtUvaV2VUR)
 
-関数の作成をクリックします。  
+関数の作成をクリックします。
 ![soracombutton-connect/Lambda2](http://drive.google.com/uc?id=1uHRm9MDLnxSRQOXZL0Dk9dxsQEaOGISA)
 
 関数の作成画面が開きます。以下の情報を入力します。
-* 作成方法：一から作成  
+* 作成方法：一から作成
 * 関数名：任意の名前(callbuttonなど)
 * ランタイム：Python3.7
 * 実行ロール：基本的なLambdaアクセス権限で新しいロールを作成
 ![soracombutton-connect/Lambda3](http://drive.google.com/uc?id=15GrdHdGNZRveuntjgz-JnW2gNqNjaXTx)
 
-続いて関数の編集画面が開きます。以下の設定を行います  
+続いて関数の編集画面が開きます。以下の設定を行います
 * 関数コードのセクション
     * コードエントリタイプ：コードをインラインで編集
     * lambda_function：import jsonから始まる現在の設定をすべて消し、[Lambda関数](https://github.com/kizawa2020/iot-showcase/raw/master/events/scsk-connect-handson/lambda.py)の内容にすべて置き換えてください。(コピーして貼り付けで可)
@@ -255,24 +255,24 @@ Lambdaの画面から動作を確認しましょう。関数への実行時パ�
 テストイベントを編集し、SINGLEとなっているclickTypeをDOUBLEなどに変えてテストを再度実行すると、電話口のメッセージが変わります。
 余裕があれば試してみてください。
 
-最後に画面上方にある「保存」ボタンをクリックして下さい。  
+最後に画面上方にある「保存」ボタンをクリックして下さい。
 以上で完了です。
 
 <h3 id="content6">6. AWS IoT 1-Clickのプロジェクト設定</h3>
 
-**AWS IoT 1-Clickプロジェクト設定**  
-AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開いた後 [プロジェクトの作成] をクリックします。  
+**AWS IoT 1-Clickプロジェクト設定**
+AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開いた後 [プロジェクトの作成] をクリックします。
 ![soracombutton-connect/iot1click1](https://docs.google.com/drawings/d/e/2PACX-1vSQtO8MYnq7k9drY2LWfYrhuWNmjZ16USKNslZr0L6mGvOET8KPYkePkvI3Sq8s3-HCelF3tfeFB5Vz/pub?w=897&h=473)
 
-プロジェクト名として任意の名前を入力します。  
+プロジェクト名として任意の名前を入力します。
 ![soracombutton-connect/iot1click2](https://drive.google.com/uc?id=1iw2KxNwG8sVr9t4kfoqyWKy9aXYbbtkj)
 
-**プレイスメントのテンプレート**  
-プロジェクトのプレイスメントのテンプレートの定義画面に移ります。  
-デバイステンプレートの定義の箇所をクリックします。  
+**プレイスメントのテンプレート**
+プロジェクトのプレイスメントのテンプレートの定義画面に移ります。
+デバイステンプレートの定義の箇所をクリックします。
 ![soracombutton-connect/iot1click3](https://drive.google.com/uc?id=1mJMhr1a0M_WXiE37HvWZ3mNSFkgbklV3)
 
-「すべてのボタンタイプ」の箇所をクリックします。  
+「すべてのボタンタイプ」の箇所をクリックします。
 ![soracombutton-connect/iot1click4](https://drive.google.com/uc?id=1Upx3Qer8PrwBsj1K8E-o04x-OTFELFzc)
 
 続けて先程作成したLambda関数と紐付けます。以下の情報を入力します。　　
@@ -282,16 +282,16 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 * Lambda関数：先程作成したLambda関数名
 ![soracombutton-connect/iot1click5](https://drive.google.com/uc?id=1et2vptZNSXEvDelqJgDzSyHHlTToHhGw)
 
-ここまで入力が完了したら、画面下方にある「プロジェクトの作成」をクリックします。  
+ここまで入力が完了したら、画面下方にある「プロジェクトの作成」をクリックします。
 
 プロジェクトが作成されました。[プレイスメントの作成] をクリックします。
-![soracombutton-connect/iot1click6](https://drive.google.com/uc?id=1giRA2qRSrqRJLdiwMXZvD37HLAu0NUyp)  
+![soracombutton-connect/iot1click6](https://drive.google.com/uc?id=1giRA2qRSrqRJLdiwMXZvD37HLAu0NUyp)
 
-**プレイスメント設定**  
-続けてプレイスメントの設定を行います。  
+**プレイスメント設定**
+続けてプレイスメントの設定を行います。
 プレイスメントの設定で、登録したボタンのDSNコードと紐付けます。
-
 ![soracombutton-connect/iot1click7](https://drive.google.com/uc?id=1Bl_TxwkCu5IT6FyT7ndjqdklkhUdTAmI)
+
 プロジェクトの新しいプレイスメントでは以下のように設定した後 [プレイスメントの作成] をクリックします。
 
 * デバイスのプレイスメント名: `button1` (任意の文字列)
@@ -305,8 +305,8 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 
 <h3 id="content7">7. 動作確認</h3>
 
-ここまでの作業で AWS IoT 1-Click を通じて Amazon Connect経由で電話がかけられるようになりました。  
-ボタンを押すと、ご自身の携帯電話に電話が掛かってくるようになったでしょうか。 
+ここまでの作業で AWS IoT 1-Click を通じて Amazon Connect経由で電話がかけられるようになりました。
+ボタンを押すと、ご自身の携帯電話に電話が掛かってくるようになったでしょうか。
 シングルクリック、ダブルクリック、長押しでメッセージが変わることを確認してください。
 （※うまく動作しない方はスタッフまでお問い合わせ下さい）
 ![soracombutton-connect/check1](https://drive.google.com/uc?id=1QgQwLtM3gTTmYLNblKk-f8MWTSuDG3fl)
@@ -332,29 +332,77 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 
 <h3 id="content9">9. お片付け</h3>
 
-**※ ボタン貸出枠で参加の方は、ボタン返却のため以下の手順の実施をしてください。**
+最後にAWSの設定上の後片付けを行います。
+全員が実施する部分と、ボタン貸出枠参加者のみ実施する部分がありますのでご注意ください。
 
-AWS IoT 1-Click のコンソールを開きます。リージョンがオレゴンになっていることを確認してください。  
-[管理] > [プロジェクト] とクリックした後、解除を行いたいデバイスが所属しているプロジェクトをクリックします。  
+**※ 参加者全員、この手順を実施してください。**
+
+手順において、Amazon Connectで電話番号を取得しました。ただし、番号を取得したままにすると少額ですが毎日コストがかかることになります。
+ここでは取得したAmazon Connectの電話番号を解放(リリース)します。
+
+Amazon Connectダッシュボードにおいて、画面左から「キュー」を開きます。
+
+![soracombutton-connect/ putaway06](https://drive.google.com/uc?id=1JTUiktt975YM8FOR2S-of7ZQhy9UUnaL)
+
+今回作成したキューである、「Basic Queue」を選択します。
+
+![soracombutton-connect/ putaway07](https://drive.google.com/uc?id=1_dO4EJnpJ_lUsSWy1w9u_CntWkqtTZ4D)
+
+アウトバウンド発信者 ID 番号　に今回設定した番号が与えられているので、番号横の x ボタンを押して、番号の紐付け設定を解除します。保存します。
+
+![soracombutton-connect/ putaway08](https://drive.google.com/uc?id=1bbjYbc1xwB14mXr0hWMpr-etsDRt8Ktl)
+
+Amazon Connectダッシュボードにおいて、画面左から「電話番号」を開きます。
+
+![soracombutton-connect/ putaway09](https://drive.google.com/uc?id=1pEr3Bj0L87CVXU-zqaCsFc4Yb0sA-NbR)
+
+今回使用した電話番号にチェックをし、「リリース」をクリックします。
+
+![soracombutton-connect/ putaway10](https://drive.google.com/uc?id=1gJPPLbPR9IBMLC0fmw0JgacfUEvnwwBv)
+
+問題ありません。「削除」します。
+
+![soracombutton-connect/ putaway11](https://drive.google.com/uc?id=1c62fQwGMHu1H5TXio_2NWLivZjJYcE8G)
+
+番号一覧から今回使用した電話番号が削除されました。
+
+![soracombutton-connect/ putaway12](https://drive.google.com/uc?id=1HqgTWXuK4RsQTncF9MGDPfjNRIOt63rO)
+
+これで電話番号が解放されました。次の手順に進んでください。
+なお、電話番号がちゃんと解放されているか確認する場合は、Lambdaをテスト実行してみると良いでしょう。
+電話番号が解放された後にLambdaを実行すると、以下のようなメッセージが出力されます。
+No Resource Found. つまり電話をかけるためのリソースがありませんよ、というメッセージが出力されます。
+このため、誤ってLambdaを実行しても電話はかかってきません。
+
+![soracombutton-connect/ putaway13](https://drive.google.com/uc?id=1aXZFtSsXL1cSTHspBGCM_1SOOEQcj3NZ)
+
+
+**※ ボタン貸出枠で参加の方のみ、以下の手順を実施してください。**
+
+ボタン貸出枠の方は、貸与されたボタンとAWS IoT 1-Clickとの紐付けを解除する必要があります。
+デバイスの登録解除をAWS IoT 1-Clickの画面から行います。
+
+AWS IoT 1-Click のコンソールを開きます。リージョンがオレゴンになっていることを確認してください。
+[管理] > [プロジェクト] とクリックした後、解除を行いたいデバイスが所属しているプロジェクトをクリックします。
 ![1 unassing placement](https://docs.google.com/drawings/d/e/2PACX-1vTKFP7PyM2LajuqPhfZ8Gc3bGus8fbi1xJ6alpcEoOKLmPiM9m0YZ9F8Zn0t8KSQvN61lZh4F4zxov1/pub?w=601&h=591)
 
-[プレイスメント] から解除したいデバイスの [...] をクリックした後に表示される [プレイスメントの編集] をクリックします。  
+[プレイスメント] から解除したいデバイスの [...] をクリックした後に表示される [プレイスメントの編集] をクリックします。
 ![2 unassing placement](https://docs.google.com/drawings/d/e/2PACX-1vS8f28yZgWHTjGktSFGbSNqRVgbbl1TX7Y99p2zlvbmd6r5rdVqvyCI9cNVvJiXp5KjJiO7XK71b6a-/pub?w=929&h=529)
 
-デバイスが表示されている部分の [クリア] をクリックした後、[プレイスメントの更新] をクリックします。  
+デバイスが表示されている部分の [クリア] をクリックした後、[プレイスメントの更新] をクリックします。
 ![3 unassing placement](https://docs.google.com/drawings/d/e/2PACX-1vSAticSljF3nnjF3xLZrwUNKVY7PHmwzPjSfFJqmcJJ8-n6S1LMqUtdm_IVDrZdkfQThKlSLa-pbMls/pub?w=928&h=407)
 
-これでデバイスとプレイスメントの割り当てが無くなりました。  
-[管理] > [デバイス] とクリックした後、解除を行いたいデバイスの [...] をクリックした後に表示される [デバイスの登録解除] をクリックします。  
+これでデバイスとプレイスメントの割り当てが無くなりました。
+[管理] > [デバイス] とクリックした後、解除を行いたいデバイスの [...] をクリックした後に表示される [デバイスの登録解除] をクリックします。
 最後に確認ダイアログの [登録解除] で解除が完了します。
 
 ※プレイスメントに割り当てられているデバイスは解除できませんので、プレイスメントから外してから行ってください。
 
 ![mkmk-button / 1 unclaim](https://docs.google.com/drawings/d/e/2PACX-1vTCsBV32iOWgBn8QZJbmiRQIIv1k4JxFmtw3STpYFl_I-iGZn-ejHO_7gSg1Nvv-IxkdtnpbOMHHUB8/pub?w=928&h=269)
 
-一覧から対象デバイスが無くなれば解除完了です。  
+一覧から対象デバイスが無くなれば解除完了です。
 こちらでハンズオンは終了です。お疲れ様でした。
 
 ## 最後に
-最後に貸し出ししたSORACOM LTE-M Buttonをスタッフに手渡してください。  
+最後に貸し出ししたSORACOM LTE-M Buttonをスタッフに手渡してください。
 お渡し頂くタイミングで、プレイスメントの割り当てが無くなっているかを確認させていただきます。
