@@ -328,17 +328,18 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 * 問い合わせ属性の設定：入力を基にキーに値を入れる
 * AWS Lambda関数を呼び出す：Lambda関数を実行する
 
-![soracombutton-connect/advanced1](https://drive.google.com/uc?id=1E5ftTpgVkjsplA3psXHL_hXGtuq41liW)
+[設定サンプル](https://drive.google.com/uc?id=1E5ftTpgVkjsplA3psXHL_hXGtuq41liW)
 
 作成した問い合わせフローは、ルーティング⇒電話番号から電話番号を選択し、「問い合わせフロー/IVR」の欄で設定することで呼び出されます。
-![soracombutton-connect/advanced2](https://drive.google.com/uc?id=1XvF3Xxl9edhMFKR1h2KaKB86Awfe48_C)
+![soracombutton-connect/advanced1](https://drive.google.com/uc?id=1XvF3Xxl9edhMFKR1h2KaKB86Awfe48_C)
 
 <h3 id="content9">9. お片付け</h3>
 
 最後にAWSの設定上の後片付けを行います。
 全員が実施する部分と、ボタン貸出枠参加者のみ実施する部分がありますのでご注意ください。
 
-**※ 参加者全員、この手順を実施してください。**
+**Amazon Connect電話番号の削除**
+※ 参加者全員、この手順を実施してください。
 
 手順において、Amazon Connectで電話番号を取得しました。
 ただし、番号を取得したままにすると少額ですが毎日コストがかかることになります。
@@ -380,8 +381,8 @@ No Resource Found. つまり電話をかけるためのリソースがありま�
 
 ![soracombutton-connect/ putaway13](https://drive.google.com/uc?id=1aXZFtSsXL1cSTHspBGCM_1SOOEQcj3NZ)
 
-
-**※ ボタン貸出枠で参加の方のみ、以下の手順を実施してください。**
+**AWS IoT 1-Click ボタンの設定解除**
+※ ボタン貸出枠で参加の方のみ、以下の手順を実施してください。
 
 ボタン貸出枠の方は、貸与されたボタンとAWS IoT 1-Clickとの紐付けを解除する必要があります。
 デバイスの登録解除をAWS IoT 1-Clickの画面から行います。
