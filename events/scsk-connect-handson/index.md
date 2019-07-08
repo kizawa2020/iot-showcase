@@ -320,6 +320,7 @@ AWS IoT 1-Click コンソールから [管理] > [プロジェクト] を開い�
 ![soracombutton-connect/iot1click6](https://drive.google.com/uc?id=1giRA2qRSrqRJLdiwMXZvD37HLAu0NUyp)
 
 **プレイスメント設定**
+
 続けてプレイスメントの設定を行います。
 プレイスメントの設定で、登録したボタンのDSNコードと紐付けます。
 
