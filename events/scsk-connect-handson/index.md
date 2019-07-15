@@ -182,8 +182,8 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 公開済みになったことを確認します。
 左側にある「追加のフロー情報の表示」をクリックし、表示される以下の情報をコピーしておきます。
 
-* インスタンスID(:instanceの前の12桁の数字)
-* ARN情報(contact-flow以下の文字列)
+* インスタンスID("instance/"と"/contactflow/"の間の文字列)
+* ARN情報("contact-flow/"以下の文字列)
 
 ![soracombutton-connect/フロー作成7](http://drive.google.com/uc?id=1Ns1Jsl8DD_iGfWiqxCCasYTvPfKcFp8V)
 
