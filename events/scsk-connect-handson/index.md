@@ -121,10 +121,6 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 
 ![soracombutton-connect/インスタンスの作成7](http://drive.google.com/uc?id=1HxXvuLmqriM8qUe4yc3fK40cpz4i1WTX)
 
-なお、インスタンスARN情報が後(5章)で必要となるため、コピーしておきます。
-
-![soracombutton-connect/インスタンスの作成8](http://drive.google.com/uc?id=1IxQYVI3bjmZawpzx1tASGWctFNHkjUgD)
-
 <h3 id="content3">3. Amazon Connect電話番号の取得</h3>
 
 前章で指定したAmazon Connectインスタンスの開始画面に切り替わります。
@@ -184,7 +180,10 @@ LTE-M Button からのボタン押下を待ち受ける状態になります。
 ![soracombutton-connect/フロー作成7](http://drive.google.com/uc?id=1vcL668t7K17K_7ixupSkQPRzvUXAWo3f)
 
 公開済みになったことを確認します。
-左側にある「追加のフロー情報の表示」をクリックし、表示されるARN情報(contact-flow以下の文字列)をコピーしておきます。
+左側にある「追加のフロー情報の表示」をクリックし、表示される以下の情報をコピーしておきます。
+
+* インスタンスID(:instanceの前の12桁の数字)
+* ARN情報(contact-flow以下の文字列)
 
 ![soracombutton-connect/フロー作成7](http://drive.google.com/uc?id=1Ns1Jsl8DD_iGfWiqxCCasYTvPfKcFp8V)
 
