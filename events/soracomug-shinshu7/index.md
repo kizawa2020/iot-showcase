@@ -8,7 +8,7 @@ SORACOM LTE-M Button for Enterprise（通称：しろボタン）を使い、ボ
 ![soracomug_shinshu7 / Twilio全体像](https://kizawa.info/wp-content/uploads/2018/11/soracombutton-arch3.png)
 
 ## 本日の貸し出し機材
-* SORACOM LTE-M Button for Enterprise
+* SORACOM LTE-M Button for Enterprise（と、ボタンに紐付くSORACOMアカウント）
 
 ## お客様の持ち物
 * Wifi に繋がるPC
@@ -196,6 +196,10 @@ SORACOM Funkからアクセスできるよう、IAMユーザを作成し権限�
 <h3 id="contentE">9. お片付け</h3>
 
 **※ あのボタン貸出枠で参加の方は、ボタン返却のため以下の手順の実施をしてください。**
+
+SIMグループを削除します。
+
+
 
 こちらでハンズオンは終了です。お疲れ様でした。
 
