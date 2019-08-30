@@ -1,8 +1,10 @@
 # SORACOM UG 信州 #6 2019/3/30
 
 ## ハンズオンの内容
-SORACOM LTE-M Button powered by AWS を使い、ボタンを押したらTwilio経由で電話が掛かってくるようにする仕組みを作成します  
+SORACOM LTE-M Button powered by AWS（通称：あのボタン）を使い、ボタンを押したらTwilio経由で電話が掛かってくる仕組みを作成します  
 （参考：[SORACOM Buttonで会議脱出ボタンをつくる](https://kizawa.info/soracombutton-escape)）
+
+[SORACOM LTE-M Button for Enterprise（通称：しろボタン）を使う場合はこちらです](https://kizawa2020.github.io/iot-showcase/events/soracomug-shinshu7/)
 
 ### ハンズオンの構成
 ![soracomug_shinshu6 / Twilio全体像](https://kizawa.info/wp-content/uploads/2018/11/soracombutton-arch3.png)
