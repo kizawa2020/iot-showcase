@@ -232,7 +232,7 @@ SORACOM Air for Cellular設定では、バイナリーパーサーを有効化�
 SORACOM Funk設定では、認証情報とLambda関数のARNを入力します。
 ![soracomug_shinshu7 / 7-5 Funk設定](http://drive.google.com/uc?id=1JHBVAbmtVycUDtI2NQ2B3y9xUawWS05j)
 
-認証情報では、新しい認証情報の作成を選択し、IAMユーザの
+認証情報では、新しい認証情報の作成を選択し、IAMユーザのアクセスキーIDとシークレットアクセスキーを入力します。 
 ![soracomug_shinshu7 / 7-6 認証情報](http://drive.google.com/uc?id=1MzeRTDCZ47Yg5oU4t7lxE1dbxC0mIplL)
 
 <h3 id="content8">8. 動作確認</h3>
