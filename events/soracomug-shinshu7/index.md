@@ -214,22 +214,22 @@ JSONタブをクリックし、以下の内容を入力します。（Lambda関�
 
 **SIMグループの作成**  
 SORACOMユーザコンソールにログインし、SIM管理を開きます。
-登録されているボタンデバイスを選択し、所属グループの変更を選択します。
+登録されているボタンデバイスを選択し、所属グループの変更を選択します。 
 ![soracomug_shinshu7 / 7-1 SIMグループの作成](http://drive.google.com/uc?id=1luHTHMAG6k4OOct3Ctlb-rZ6GJJdItqO)
 
 続けて「新しいグループを作成」を選択します。 
 ![soracomug_shinshu7 / 7-2 新しいグループの作成](http://drive.google.com/uc?id=1nPGIzJe6nr7r4MRWACBgZapnjbz3vqXP)
 
-グループ名を入力しグループ作成のボタンをクリック、割り当てることで新しいグループの作成ができました。
+グループ名を入力しグループ作成のボタンをクリック、割り当てることで新しいグループの作成ができました。 
 ![soracomug_shinshu7 / 7-3 新しいグループの作成](http://drive.google.com/uc?id=1jwdMw5TXPH186oTK2LsYjs7E2VM1xdyL)
 
 **SORACOM Funkの設定**  
 作成したグループで以下の設定を行います。
 
-SORACOM Air for Cellular設定では、バイナリーパーサーを有効化し、フォーマットは @button とします。
+SORACOM Air for Cellular設定では、バイナリーパーサーを有効化し、フォーマットは @button とします。 
 ![soracomug_shinshu7 / 7-4 バイナリーパーサー設定](http://drive.google.com/uc?id=1mSAL9kCepTpyC3TbodOKssS-mM5ImHGK)
 
-SORACOM Funk設定では、認証情報とLambda関数のARNを入力します。
+SORACOM Funk設定では、認証情報とLambda関数のARNを入力します。 
 ![soracomug_shinshu7 / 7-5 Funk設定](http://drive.google.com/uc?id=1JHBVAbmtVycUDtI2NQ2B3y9xUawWS05j)
 
 認証情報では、新しい認証情報の作成を選択し、IAMユーザのアクセスキーIDとシークレットアクセスキーを入力します。 
@@ -242,7 +242,7 @@ SORACOM Funk設定では、認証情報とLambda関数のARNを入力します�
 
 <h3 id="contentE">9. お片付け</h3>
 
-**※ あのボタン貸出枠で参加の方は、ボタン返却のため以下の手順の実施をしてください。**
+**※ しろボタン貸出枠で参加の方は、ボタン返却のため以下の手順の実施をしてください。**
 
 **SIMグループの削除**  
 SORACOMユーザコンソールにログインし、SIMグループを開きます。
